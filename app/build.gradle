@@ -1,0 +1,31 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+repositories {
+    mavenCentral()
+
+    ivy {
+        url = uri("https://test.lpm.feri.um.si")
+        patternLayout {
+            artifact("/[module].[ext]")
+        }
+        metadataSources { artifact() }
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.guava:guava:32.1.1-jre'
+    implementation("ears3:ears3")
+}
+
+
+application {
+    mainClass = 'earstest2.App'
+}
